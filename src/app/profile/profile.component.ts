@@ -9,8 +9,9 @@ import Swal from 'sweetalert2';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-// used oninit hook to get the parameter and find the profile when the page opens
+// oninit hook to get the parameter and find the profile when the page opens
 export class ProfileComponent implements OnInit{
+  constructor(private route:ActivatedRoute,private api:GitSService,private fb:FormBuilder,private router:Router){}
 
   ngOnInit(): void {
     // getting the profile name from params with activatedRoute
@@ -24,7 +25,7 @@ export class ProfileComponent implements OnInit{
 
 
   searchKey:string=''
-  constructor(private route:ActivatedRoute,private api:GitSService,private fb:FormBuilder,private router:Router){}
+  
   allDetails:any=[]
 
   searchForm = this.fb.group({
