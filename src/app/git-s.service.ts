@@ -7,18 +7,18 @@ import { Injectable } from '@angular/core';
 export class GitSService {
 
   constructor(private http:HttpClient) { }
-  // git api base url
 
+  // git api base url
   url = 'https://api.github.com/users'
 
  
 
-  // get profile details
+  // getting profile details
   getProfileDeatilsApi(user:any){
     return this.http.get(`${this.url}/${user}`)
   }
 
-  // get repositories
+  // getting repositories
   getRepoDetails(user:string){
     return this.http.get(`${this.url}/${user}/repos`)
   }

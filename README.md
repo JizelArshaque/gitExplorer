@@ -25,3 +25,22 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+
+This Angular application aims to provide a user-friendly interface for viewing GitHub user profiles and their repositories. Here's a brief of the application:
+
+Profile Page:
+
+The application dynamically generates user profile pages based on the GitHub username provided via URL parameters. This ensures that each user's profile is displayed accurately.
+The profile page displays basic information about the GitHub user, including their name, avatar, bio, and the number of repositories they have. 
+
+Repository List:
+
+This component fetches and displays a list of repositories belonging to the GitHub user whose profile is being viewed.
+Each repository is represented by a card, which includes repository name, description, and a list of topics. 
+
+
+
+

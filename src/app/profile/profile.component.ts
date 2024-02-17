@@ -9,8 +9,11 @@ import Swal from 'sweetalert2';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+// used oninit hook to get the parameter and find the profile when the page opens
 export class ProfileComponent implements OnInit{
+
   ngOnInit(): void {
+    // getting the profile name from params with activatedRoute
     this.route.params.subscribe((res:any)=>{
       this.searchKey = res['id']
       // console.log(this.searchKey); 
@@ -43,7 +46,6 @@ export class ProfileComponent implements OnInit{
       next:(res:any)=>{
         // console.log(res);
         this.allDetails=res
-        
       },
       error:((err:any)=>{
         // console.log(err);
