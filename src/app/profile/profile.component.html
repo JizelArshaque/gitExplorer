@@ -1,0 +1,7 @@
+<div>
+    <img [src]="allDetails.avatar_url" alt="">
+    <h3>Username: {{allDetails.login}}</h3>
+    <p>Bio: {{allDetails.bio}}</p>
+    <p>Number Of Repositories: {{allDetails.public_repos}}</p>
+    <a routerLink="/repository/{{allDetails.login}}"> See repositories</a>
+</div>

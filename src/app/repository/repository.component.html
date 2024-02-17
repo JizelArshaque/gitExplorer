@@ -1,0 +1,29 @@
+
+<div class="p-5 justify-content-center">
+    <table class="border rounded p-2">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Repository name</th>
+                <th>Description</th>
+                <th>topics</th>
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let repo of allDetails,let i=index ">
+                <td>{{i+1}}</td>
+                <td>{{repo.full_name}}</td>
+                <td *ngIf="(!!repo.description)">{{repo.description}}</td>
+                <td *ngIf="!(!!repo.description)"> <span class="text-secondary">No content</span></td>
+                <td *ngIf="(repo.topics.length)>0">{{repo.topics}}</td>
+                <td *ngIf="(repo.topics.length)==0"><span class="text-secondary">no content!</span></td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    
+</div>
