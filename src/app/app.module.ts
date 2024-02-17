@@ -10,7 +10,14 @@ import { PnfComponent } from './pnf/pnf.component';
 import { HeaderComponent } from './header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 
 @NgModule({
@@ -28,7 +35,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatPaginatorModule
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatToolbarModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
-  ngOnInit(): void {
-    
-    
-  }
+export class HomeComponent{
+
   
   
 
@@ -22,8 +20,15 @@ export class HomeComponent implements OnInit{
   })
 
   search(){
-    const searcher = this.searchForm.value.searchName
-    this.router.navigateByUrl(`/profile/${searcher}`)
+
+    
+    if(this.searchForm.valid){ 
+      const searcher = this.searchForm.value.searchName
+      this.router.navigateByUrl(`/profile/${searcher}`)
+    }else{
+      Swal.fire('Please Enter the username to search!')
+    }
+    
 
   }
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GitSService } from '../git-s.service';
+import { FormBuilder, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -19,8 +21,25 @@ export class ProfileComponent implements OnInit{
 
 
   searchKey:string=''
-  constructor(private route:ActivatedRoute,private api:GitSService){}
+  constructor(private route:ActivatedRoute,private api:GitSService,private fb:FormBuilder,private router:Router){}
   allDetails:any=[]
+
+  searchForm = this.fb.group({
+    searchName:['',[Validators.required]]
+  })
+
+  search(){
+
+    
+    if(this.searchForm.valid){ 
+      const searcher = this.searchForm.value.searchName
+      this.router.navigateByUrl(`/profile/${searcher}`)
+    }else{
+      Swal.fire('Please Enter the username to search!')
+    }
+    
+
+  }
 
   getProfile(name:any){
     this.api.getProfileDeatilsApi(name).subscribe({

@@ -1,0 +1,31 @@
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+  }
+  
+  .rounded-div {
+    background-color: #a39193;
+    border-radius: 30px; 
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-bar {
+    display: flex;
+  }
+  
+  .search-input {
+    flex: 1; 
+    padding: 10px;
+    border-radius: 30px; 
+  }
+  
+  .search-button {
+    border: none;
+    background-color:#66545e; 
+    padding: 10px;
+    border-radius: 20px;
+  }
+  

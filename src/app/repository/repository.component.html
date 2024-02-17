@@ -1,29 +1,24 @@
+<section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-2 row-cols-xl-3 justify-content-center">
+                <div class="col mb-5" *ngFor="let repo of allDetails,let i=index ">
+                    <div class="card h-100">
+                        
+                        <!-- Repository Details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Repository name -->
+                                <h5 class="fw-bolder"><span class=" text-secondary">Repository name:</span> {{repo.full_name}}</h5>
+                                <!-- repository Description-->
+                                <p *ngIf="(!!repo.description)"><span class="text-secondary"> Description:</span> {{repo.description}}</p>
+                                <!-- repository topics -->
+                                <p *ngIf="(repo.topics.length)>0"> <span class="text-secondary">Topics:</span> {{repo.topics}}</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
 
-<div class="p-5 justify-content-center">
-    <table class="border rounded p-2">
-        <thead>
-            <tr>
-                <th>Index</th>
-                <th>Repository name</th>
-                <th>Description</th>
-                <th>topics</th>
-            </tr>
-    
-        </thead>
-        <tbody>
-            <tr *ngFor="let repo of allDetails,let i=index ">
-                <td>{{i+1}}</td>
-                <td>{{repo.full_name}}</td>
-                <td *ngIf="(!!repo.description)">{{repo.description}}</td>
-                <td *ngIf="!(!!repo.description)"> <span class="text-secondary">No content</span></td>
-                <td *ngIf="(repo.topics.length)>0">{{repo.topics}}</td>
-                <td *ngIf="(repo.topics.length)==0"><span class="text-secondary">no content!</span></td>
-                
-            </tr>
-        </tbody>
-    </table>
-
-
-
-    
-</div>
