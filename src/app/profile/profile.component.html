@@ -1,31 +1,33 @@
-<div class="container-s">
-  <div class="rounded-div-s">
-      <form [formGroup]="searchForm" (ngSubmit)="search()" class="mt2">
-          <div class="search-bar-s">
-              <input type="text" placeholder="Search" class="search-input-s" name="searcher" formControlName="searchName">
-              <button mat-fab color="primary" aria-label="Example icon button with a home icon" class="search-button-s ms-3" type="submit"> 
-                <mat-icon>search</mat-icon>
-              </button>
-        
-          </div>
-      </form>
+<body>
+  <div class="container-s">
+    <div class="rounded-div-s">
+        <form [formGroup]="searchForm" (ngSubmit)="search()" class="mt2">
+            <div class="search-bar-s">
+                <input type="text" placeholder="Search Another user" class="search-input-s" name="searcher" formControlName="searchName">
+                <button mat-fab color="primary" aria-label="Example icon button with a home icon" class="search-button-s ms-3" type="submit"> 
+                  <mat-icon>search</mat-icon>
+                </button>
+          
+            </div>
+        </form>
+    </div>
   </div>
-</div>
-
-<div class="container">
   
-  <div class="card">
-      <div class="header">
-        <img [src]="allDetails.avatar_url" alt="Profile Image" class="profile-image">
-        <div class="profile-info">
-          <span class="profile-name">{{allDetails.login}}</span>
-          <p class="bio">{{allDetails.bio}}</p>
+  <div class="container">
+    
+    <div class="card">
+        <div class="header">
+          <img [src]="allDetails.avatar_url" alt="Profile Image" class="profile-image">
+          <div class="profile-info">
+            <span class="profile-name">{{allDetails.login}}</span>
+            <p class="bio">{{allDetails.bio}}</p>
+          </div>
         </div>
-      </div>
-      <div class="body">
-        
-        <p class=" mt-3">Repositories:<span class="text-dark"><b> {{allDetails.public_repos}}</b></span></p>
-        <a routerLink="/repository/{{allDetails.login}}" class="view-repos" >View Repositories</a>
-      </div>
-   </div>
-</div>
+        <div class="body">
+          
+          <p class=" mt-3">Repositories:<span class="text-dark"><b> {{allDetails.public_repos}}</b></span></p>
+          <a routerLink="/repository/{{allDetails.login}}" class="view-repos" >View Repositories</a>
+        </div>
+     </div>
+  </div>
+</body>

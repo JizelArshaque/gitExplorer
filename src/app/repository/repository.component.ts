@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GitSService } from '../git-s.service';
 import { ActivatedRoute } from '@angular/router';
-import {MatPaginatorModule} from '@angular/material/paginator';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-repository',
@@ -14,6 +15,7 @@ export class RepositoryComponent implements OnInit{
 
   allDetails:any=[]
   user:string=''
+  p: number = 1;
 
   ngOnInit(): void {
     this.route.params.subscribe((res:any)=>{
@@ -26,16 +28,16 @@ export class RepositoryComponent implements OnInit{
   
   getrepodets(user:string){
     this.api.getRepoDetails(user).subscribe({
-      next:(res:any)=>{
+      next:(res:any)=>{     
         this.allDetails=res
-        console.log(res);
+
+        
         
         
       },
       error:(err:any)=>{
-        console.log(err,'couldnt fetch details');
+        Swal.fire('no Account with that username!')
 
-        
       }
     })
   }

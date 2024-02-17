@@ -29,27 +29,26 @@ export class ProfileComponent implements OnInit{
   })
 
   search(){
-
-    
     if(this.searchForm.valid){ 
       const searcher = this.searchForm.value.searchName
       this.router.navigateByUrl(`/profile/${searcher}`)
+      this.getProfile(searcher)
     }else{
       Swal.fire('Please Enter the username to search!')
     }
-    
-
   }
 
   getProfile(name:any){
     this.api.getProfileDeatilsApi(name).subscribe({
       next:(res:any)=>{
-        console.log(res);
+        // console.log(res);
         this.allDetails=res
         
       },
       error:((err:any)=>{
-        console.log(err);
+        // console.log(err);
+        Swal.fire('No usernam found with that name, Please Try again!')
+        this.router.navigateByUrl('')
         
       })
     })

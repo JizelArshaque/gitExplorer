@@ -2,7 +2,7 @@
     <div class="rounded-div">
         <form [formGroup]="searchForm" (ngSubmit)="search()" class="mt2">
             <div class="search-bar">
-                <input type="text" placeholder="Search" class="search-input" name="searcher" formControlName="searchName">
+                <input type="text" placeholder="Search a github user" class="search-input" name="searcher" formControlName="searchName">
                 <button mat-fab color="primary" aria-label="Example icon button with a home icon" class="search-button ms-3" type="submit"> 
                   <mat-icon>search</mat-icon>
                 </button>

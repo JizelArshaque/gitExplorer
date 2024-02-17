@@ -1,24 +1,31 @@
-<section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-2 row-cols-xl-3 justify-content-center">
-                <div class="col mb-5" *ngFor="let repo of allDetails,let i=index ">
-                    <div class="card h-100">
-                        
-                        <!-- Repository Details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Repository name -->
-                                <h5 class="fw-bolder"><span class=" text-secondary">Repository name:</span> {{repo.full_name}}</h5>
-                                <!-- repository Description-->
-                                <p *ngIf="(!!repo.description)"><span class="text-secondary"> Description:</span> {{repo.description}}</p>
-                                <!-- repository topics -->
-                                <p *ngIf="(repo.topics.length)>0"> <span class="text-secondary">Topics:</span> {{repo.topics}}</p>
+<!-- <body style="background-color: rgb(230, 222, 211);"> -->
+    <section class="py-5" style="background-color: rgb(230, 222, 211);">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-2 row-cols-xl-3 justify-content-center">
+                    <div class="col mb-5" *ngFor="let repo of allDetails | paginate: { itemsPerPage: 10, currentPage: p } ">
+                        <div class="card shadow h-100">
+                            
+                          
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                  
+                                    <h5 class="fw-bolder"><span class=" text-secondary">Repository name:</span> <strong>{{repo.full_name}}</strong></h5>
+                                 
+                                    <p *ngIf="(!!repo.description)"><span class="text-secondary"> Description:</span> {{repo.description}}</p>
                                 
+                                    <p *ngIf="(repo.topics.length)>0"> <span class="text-secondary">Topics:</span> {{repo.topics}}</p>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-</section>
-
+    </section>
+    <div style="display: flex; justify-content: center; padding: 3vh;background-color: rgb(230, 222, 211);">
+        <button class="btn btn-outline-danger" routerLink="/profile/{{this.user}}">Go Back</button>
+    </div>
+    <div style="display: flex; justify-content: center; padding: 3vh; background-color: rgb(230, 222, 211);" >
+        <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+    </div>
+<!-- </body> -->
